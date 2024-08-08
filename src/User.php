@@ -56,7 +56,6 @@ class User
         $stmt->execute();
 
     }
-
     public function delete(int $id)
     {
         $query = "DELETE FROM users WHERE id = :id";
