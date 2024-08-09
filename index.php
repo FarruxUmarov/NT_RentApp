@@ -7,4 +7,6 @@ require 'bootsrap.php';
 
 $User = new \App\User();
 
-$User->delete(5);
+$ads = new \App\Ads();
+
+$ads->createAds('ads', 'malumotlar', 1, 1,1, 'Chilonzor', 50, 3);

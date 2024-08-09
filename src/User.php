@@ -13,7 +13,7 @@ class User
         $this->pdo = DB::connect();
     }
 
-    public function create(
+    public function createUser(
         string $username,
         string $position,
         string $gender,
@@ -42,7 +42,7 @@ class User
 
     }
 
-    public function update(int $id, string $username, string $position, string $gender, string $phone):void
+    public function updateUser(int $id, string $username, string $position, string $gender, string $phone):void
     {
         $query = "Update users Set username = :username, position = :position, gender = :gender, phone = :phone, update_at= NOW()
     WHERE id = :id";
@@ -56,7 +56,7 @@ class User
         $stmt->execute();
 
     }
-    public function delete(int $id)
+    public function deleteUser(int $id)
     {
         $query = "DELETE FROM users WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
