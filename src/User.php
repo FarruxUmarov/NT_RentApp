@@ -13,38 +13,38 @@ class User
         $this->pdo = DB::connect();
     }
 
-    public function createUser(
+    public function create(
         string $username,
         string $position,
         string $gender,
         string $phone): false|array
     {
-        $query = "INSERT INTO users (username, position, gender, phone, created_at) Values (:username, :position, :gender, :phone, NOW())";
+        $query = "INSERT INTO `users` (`username`, `position`, `gender`, `phone`, `created_at`) Values (:username, :position, :gender, :phone, NOW())";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindValue(':username', $username);
-        $stmt->bindValue(':position', $position);
-        $stmt->bindValue(':gender', $gender);
-        $stmt->bindValue(':phone', $phone);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':position', $position);
+        $stmt->bindParam(':gender', $gender);
+        $stmt->bindParam(':phone', $phone);
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
 
-    public function getUser(int $id)
+    public function get(int $id)
     {
         $query = "SELECT * FROM users WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
 
     }
 
-    public function updateUser(int $id, string $username, string $position, string $gender, string $phone):void
+    public function update(int $id, string $username, string $position, string $gender, string $phone): void
     {
-        $query = "Update users Set username = :username, position = :position, gender = :gender, phone = :phone, update_at= NOW()
+        $query = "Update users Set username = :username, position = :position, gender = :gender, phone = :phone, updated_at= NOW()
     WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':id', $id);
@@ -56,7 +56,8 @@ class User
         $stmt->execute();
 
     }
-    public function deleteUser(int $id)
+
+    public function delete(int $id)
     {
         $query = "DELETE FROM users WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
@@ -64,6 +65,5 @@ class User
         $stmt->execute();
     }
 
-    //fdfdfdf
 
 }
