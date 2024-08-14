@@ -39,8 +39,9 @@
                     <p class="text-lg font-bold text-black truncate block capitalize"><?php echo $ad->title ?></p>
                     <div class="flex items-center">
                         <p class="text-lg font-semibold text-black cursor-auto my-3"><?php echo $ad->price ?>$</p>
+                            <p style="color: green">For teachers</p>
                         <div class="ml-auto">
-                            <a href="https://google.com" class="btn" title="Description">Description</a>
+                            <a style="color: blue" href="https://google.com" class="btn" title="Description">Description</a>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                  fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
