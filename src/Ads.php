@@ -43,8 +43,16 @@ class Ads
     }
 
     public function getAds(): array{
-        $query = "SELECT *, ads.address AS address FROM ads JOIN branch ON branch.id  = ads.branch_id";
+        $query = "SELECT *, ads.id AS id, ads.address AS address FROM ads JOIN branch ON branch.id  = ads.branch_id";
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function getAd($id):object{
+        $query = "SELECT * FROM ads WHERE id=:id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 
 //    public function update(

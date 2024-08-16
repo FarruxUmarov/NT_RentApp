@@ -4,7 +4,6 @@
  * https://tailwindflex.com/@arya/responsive-products-grid
  * source: https://github.com/mfg888/Responsive-Tailwind-CSS-Grid/blob/main/index.html
  */
-
 ?>
 
 <div class="text-center p-10">
@@ -14,14 +13,10 @@
 <section id="Projects"
          class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
     <?php
-
-    $ads = getAds();
-    //dd($ads);
-
     foreach ($ads as $ad):?>
         <!--   ✅ Product card 1 - Starts Here 👇 -->
         <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-            <a href="#">
+            <a href="/ads/<?= $ad->id ?>">
                 <img src="https://content.cdn-cian.ru/realty/uploads/froala_editor/images/%D1%82%D0%BF-16-%D1%81%D0%BF%D0%B0%D0%BB%D1%8C%D0%BD%D1%8F-2.jpg"
                      alt="Product" class="h-80 w-72 object-cover rounded-t-xl"/>
                 <div class="px-4 py-3 w-72">
@@ -41,7 +36,7 @@
                         <p class="text-lg font-semibold text-black cursor-auto my-3"><?php echo $ad->price ?>$</p>
                             <p style="color: green">For teachers</p>
                         <div class="ml-auto">
-                            <a style="color: blue" href="https://google.com" class="btn" title="Description">Description</a>
+<!--                            <a style="color: blue" href="https://google.com" class="btn" title="Description">Description</a>-->
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                  fill="currentColor" class="bi bi-bag-plus" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
