@@ -27,10 +27,16 @@ function basePath($path): string
 
 function view(string $path, array $args = []): void
 {
+    $filePath = basePath('/public/pages/' . $path . '.php');
+    if (!file_exists($filePath)){
+        echo "Required view file not found: $filePath";
+        return;
+    }
+
     if (is_array($args)) {
         extract($args);
     }
-    require basePath('/public/pages/' . $path . '.php');
+    require $filePath;
 }
 
 function viewPartials(string $path, array $args = []): void
