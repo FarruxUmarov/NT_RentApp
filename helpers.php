@@ -25,10 +25,12 @@ function basePath($path): string
 
 }
 
-function view(string $path, array $args)
+function view(string $path, array $args = []): void
 {
-
+if (is_array($args)){
     extract($args);
 
-    return require basePath('/public/' . $path);
+}
+
+     require basePath('/public/pages/' . $path . '.php');
 }
