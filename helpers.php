@@ -34,3 +34,23 @@ if (is_array($args)){
 
      require basePath('/public/pages/' . $path . '.php');
 }
+
+function viewPartials(string $path, array $args = []): void
+{
+    if (is_array($args)){
+        extract($args);
+
+    }
+
+    require basePath('/public/partials/' . $path . '.php');
+}
+
+function viewController(string $path, array $args = []): void
+{
+    if (is_array($args)){
+        extract($args);
+
+    }
+
+    require basePath('/controllers/' . $path . '.php');
+}

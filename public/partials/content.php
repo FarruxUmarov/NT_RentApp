@@ -13,6 +13,7 @@
 <section id="Projects"
          class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
     <?php
+    $ads = getAds();
     foreach ($ads as $ad):?>
         <!--   ✅ Product card 1 - Starts Here 👇 -->
         <div class="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
