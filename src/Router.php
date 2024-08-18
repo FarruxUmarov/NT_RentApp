@@ -56,18 +56,21 @@ class Router
             }
         }
     }
-//    public static function get($path, $callback): void
-//    {
-//        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-//            if ((new self())->getResourceId()) {
-//                $path = str_replace('id', (string)(new self())->getResourceId(), $path);
-//            }
-//        }
-//    }
+
     public static function post($path, $callback): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === $path) {
             $callback();
         }
+    }
+
+    public static function errorResponse(int $code, $message='Error bad message'): void
+    {
+        http_response_code($code);
+        if ($code === 404) {
+            view('404');
+
+        }
+        exit();
     }
 }
