@@ -38,6 +38,9 @@
         <div id="navigation">
             <!-- Navigation Menu-->
             <ul class="navigation-menu justify-end nav-light">
+
+                <li><a href="/ads/create" class="sub-menu-item">Create Ad</a></li>
+
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">Home</a><span class="menu-arrow"></span>
 

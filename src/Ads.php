@@ -55,41 +55,37 @@ class Ads
         return $stmt->fetch();
     }
 
-//    public function update(
-//        int $id,
-//        string $title,
-//        string $description,
-//        int $user_id,
-//        int $status_id,
-//        int $branch_id,
-//        string $address,
-//        float $price,
-//        int $rooms
-//    )
-//    {
-//        $query = "UPDATE CREATE TABLE advertising (
-//                                 id INT AUTO_INCREMENT PRIMARY KEY,
-//                                 text varchar(500),
-//                                 created_at TIMESTAMP
-//);
-//ds SET title = :title, description = :description, user_id = :user_id,
-//                 status_id = :status_id, branch_id = :branch_id, address = :address,
-//                 price = :price, rooms = :rooms, updated_at = NOW() WHERE id = :id";
-//
-//        $stmt = $this->pdo->prepare($query);
-//        $stmt->bindParam(':id', $id);
-//        $stmt->bindParam(':title', $title);
-//        $stmt->bindParam(':description', $description);
-//        $stmt->bindParam(':user_id', $user_id);
-//        $stmt->bindParam(':status_id', $status_id);
-//        $stmt->bindParam(':branch_id', $branch_id);
-//        $stmt->bindParam(':address', $address);
-//        $stmt->bindParam(':price', $price);
-//        $stmt->bindParam(':rooms', $rooms);
-//        $stmt->execute();
-//
-//        return $stmt->fetch(PDO::FETCH_ASSOC);
-//    }
+
+    public function update(
+        int    $id,
+        string $title,
+        string $description,
+        int    $user_id,
+        int    $status_id,
+        int    $branch_id,
+        string $address,
+        float  $price,
+        int    $rooms
+    )
+    {
+        $query = "UPDATE ads SET title = :title, description = :description, user_id = :user_id,
+                 status_id = :status_id, branch_id = :branch_id, address = :address, 
+                 price = :price, rooms = :rooms, updated_at = NOW() WHERE id = :id";
+
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':title', $title);
+        $stmt->bindParam(':description', $description);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':status_id', $status_id);
+        $stmt->bindParam(':branch_id', $branch_id);
+        $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':rooms', $rooms);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function delete(int $id): array|false
     {
