@@ -23,7 +23,7 @@ class Ads
         string $address,
         float $price,
         int $rooms,
-    ): array | false
+    ): bool
     {
         $query = "INSERT INTO ads (title, description, user_id, status_id, branch_id, address, price, rooms, created_at) 
           VALUES (:title, :description, :user_id, :status_id, :branch_id, :address, :price, :rooms, NOW())";
@@ -37,9 +37,10 @@ class Ads
         $stmt->bindParam(':address', $address);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':rooms', $rooms);
-        $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->execute();
+
+
     }
 
     public function getAds(): array{

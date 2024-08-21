@@ -210,7 +210,7 @@ viewPartials('navbar');
                                         </div>
 
                                         <div class="md:col-span-4 col-span-12">
-                                            <label for="description" class="font-medium">Ta'rif</label>
+                                            <label for="description" class="font-medium">Description</label>
                                             <div class="form-icon relative mt-2">
                                                 <i class="mdi mdi-arrow-expand-all absolute top-2 start-4 text-green-600"></i>
                                                 <textarea name="description" id="description" class="form-input ps-11" placeholder="E'lon bo'yicha ta'rif..."></textarea>
@@ -235,18 +235,18 @@ viewPartials('navbar');
                                         </div>
 
                                         <div class="md:col-span-4 col-span-12">
-                                            <label for="address" class="font-medium">Manzil</label>
+                                            <label for="address" class="font-medium">Address</label>
                                             <input name="address" id="address" type="text" class="form-input mt-2" placeholder="Manzil:">
                                         </div>
                                         <div class="col-span-12">
-                                            <label for="price" class="font-medium">Narxi:</label>
+                                            <label for="price" class="font-medium">Price:</label>
                                             <div class="form-icon relative mt-2">
                                                 <i class="mdi mdi-currency-usd absolute top-2 start-4 text-green-600"></i>
                                                 <input name="price" id="price" type="number" class="form-input ps-11" placeholder="Narxi($) :">
                                             </div>
                                         </div>
                                         <div class="col-span-12">
-                                            <label for="rooms" class="font-medium">Xonalar:</label>
+                                            <label for="rooms" class="font-medium">Rooms:</label>
                                             <div class="form-icon relative mt-2">
                                                 <input name="rooms" id="rooms" type="number" class="form-input ps-11" placeholder="Xonalar :">
                                             </div>
