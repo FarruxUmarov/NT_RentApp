@@ -5,7 +5,9 @@ declare(strict_types=1);
 
 $ad = (new \App\Ads())->getAd($id);
 
-view(path: '/single-ad', args: ['ad' => $ad]);
+$ad->image = "../assets/images/ads/$ad->image";
+
+view(path: 'single-ad', args: ['ad' => $ad]);
 
 ?>
 

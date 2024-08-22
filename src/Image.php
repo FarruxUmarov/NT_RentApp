@@ -22,4 +22,36 @@ class Image
 
         return $stmt->execute();
     }
+
+    public function handleUpload(): string
+    {
+        // Check if file uploaded
+        if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            exit('Error: ' . $_FILES['image']['error']);
+        }
+
+        // Extract file name and path
+        $name = $_FILES['image']['name'];
+        $path = $_FILES['image']['tmp_name'];
+
+            $uploadPath = basePath('/public/assets/images/ads');
+
+            // check if upload directory exists
+            if (!is_dir($uploadPath)) {
+
+                mkdir($uploadPath);
+            }
+
+            // Rename file
+            $filename = uniqid() . '___' . $name;
+            $fullFilePath = "$uploadPath/$filename";
+
+            // upload file
+            $fileUploaded = move_uploaded_file($path, $fullFilePath);
+
+            if (!$fileUploaded) {
+                exit("File could not be uploaded");
+            }
+            return $filename;
+    }
 }

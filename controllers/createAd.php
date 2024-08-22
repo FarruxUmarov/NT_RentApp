@@ -2,43 +2,28 @@
 
 declare(strict_types=1);
 
-$title       = $_POST['title'];
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$title = $_POST['title'];
 $description = $_POST['description'];
-$price       = (float) $_POST['price'];
-$gender      = $_POST['gender'];
-$branch      = (int) $_POST['branch'];
-$address     = $_POST['address'];
-$rooms       = (int) $_POST['rooms'];
-
-
-$name = $_POST['image']['name'];
-$path = $_FILES['image']['tmp_name'];
-
-//dd($_FILES);
-
-if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    $uploadPath =  basePath('/public/assets/images/ads');
-    if (!is_dir($uploadPath)) {
-        mkdir($uploadPath);
-    }
-    move_uploaded_file($path, $uploadPath . '/' . $name);
-
-}
-
-$image = new \App\Image();
-//$image->addImage('');
+$price = (float)$_POST['price'];
+//$branch = (int)$_POST['branch'] ?? null;
+$address = $_POST['address'];
+$rooms = (int)$_POST['rooms'];
 
 if ($_POST['title']
     && $_POST['description']
     && $_POST['price']
     && $_POST['address']
-    && $_POST['rooms']
-) {
+    && $_POST['rooms']) {
 
-    $newAd = (new \App\Ads())->create(
+
+    $newAdId = (new \App\Ads())->create(
         $title,
         $description,
-        5,
+        1,
         1,
         1,
         $address,
@@ -46,10 +31,22 @@ if ($_POST['title']
         $rooms
     );
 
-    if($newAd){
-        header('Location: /');
+//    dd($newAdId);
+
+    if ($newAdId) {
+
+        $imageHandler = new \App\Image();
+        $fileName = $imageHandler->handleUpload();
+
+        if (!$fileName) {
+            exit('file failed to load');
+        }
+
+        $imageHandler->addImage((int) $newAdId, $fileName);
+
+        header('location: /');
         exit();
     }
     return;
 }
-echo "Iltimos, barcha bo'sh maydonlarni to'ldiring";
+echo "Please fill all the fields";
