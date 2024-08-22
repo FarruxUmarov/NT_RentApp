@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $title = $_POST['title'];
 $description = $_POST['description'];
 $price = (float)$_POST['price'];

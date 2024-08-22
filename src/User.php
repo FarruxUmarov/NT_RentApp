@@ -17,14 +17,20 @@ class User
         string $username,
         string $position,
         string $gender,
-        string $phone): false|array
+        string $phone,
+        string $email,
+        string $password): false|array
+
     {
-        $query = "INSERT INTO `users` (`username`, `position`, `gender`, `phone`, `created_at`) Values (:username, :position, :gender, :phone, NOW())";
+        $query = "INSERT INTO `users` (`username`, `position`, `gender`, `phone`, 'email', 'password', `created_at`) Values (:username, :position, :gender, :phone, :email, :password, NOW())";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':position', $position);
         $stmt->bindParam(':gender', $gender);
         $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
