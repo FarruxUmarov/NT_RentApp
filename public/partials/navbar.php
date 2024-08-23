@@ -1,7 +1,7 @@
 <nav id="topnav" class="defaultscroll is-sticky">
     <div class="container relative">
         <!-- Start Logo container-->
-        <a class="logo" href="../index.html">
+        <a class="logo" href="/">
                     <span class="inline-block dark:hidden">
                         <img src="../assets/images/logo-dark.png" class="l-dark" height="24" alt="">
                         <img src="../assets/images/logo-light.png" class="l-light" height="24" alt="">
@@ -27,10 +27,10 @@
         <!--Login button Start-->
         <ul class="buy-button list-none mb-0">
             <li class="sm:inline ps-1 mb-0 hidden">
-                <a href="/login/create" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Login</a>
+                <a href="/login" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Login</a>
             </li>
             <li class="sm:inline ps-1 mb-0 hidden">
-                <a href="/register/create" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Register</a>
+                <a href="/register" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Register</a>
             </li>
         </ul>
         <!--Login button End-->

@@ -11,8 +11,10 @@ Router::get('/ads/create', fn() => view('dashboard/create_ad'));
 Router::post('/ads/create', fn() => viewController('createAd'));
 Router::get('/status/create', fn() => view('dashboard/create_status'));
 
-Router::get('/login/create', fn() => view('dashboard/login'));
-Router::get('/register/create', fn() => viewController('register'));
+Router::get('/login', fn() => viewController('login'));
+Router::post('/login', fn() => viewController('login'));
+Router::get('/register', fn() => viewController('register'));
+Router::post('/register', fn() => viewController('register'));
 
 Router::errorResponse(404,'Not Found');
 

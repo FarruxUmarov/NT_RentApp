@@ -25,14 +25,17 @@ class Image
 
     public function handleUpload(): string
     {
-        // Check if file uploaded
-        if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-            exit('Error: ' . $_FILES['image']['error']);
-        }
+            // Check if file uploaded
+            if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+                if ($_FILES['image']['error'] == 4) {
+                    return 'imag.jpg';
+                }
+                exit('Error: ' . $_FILES['image']['error']);
+            }
 
-        // Extract file name and path
-        $name = $_FILES['image']['name'];
-        $path = $_FILES['image']['tmp_name'];
+            // Extract file name and path
+            $name = $_FILES['image']['name'];
+            $path = $_FILES['image']['tmp_name'];
 
             $uploadPath = basePath('/public/assets/images/ads');
 
@@ -53,5 +56,7 @@ class Image
                 exit("File could not be uploaded");
             }
             return $filename;
+
     }
+
 }

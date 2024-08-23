@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-/**
- * @var $id;
- */
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-$user = (new \App\User())->create($id);
+    view('auth/register');
+    exit();
+}
+
+(new \App\User())->register();
