@@ -88,7 +88,7 @@ class User
             $_SESSION['user'] = $result->username;
             header('location: /');
         } else {
-            $_SESSION['error'] = "Wrong phone number or password";
+            $_SESSION['error'] = "Wrong phone number or password !!!";
             header('location: /login');
         }
         exit();

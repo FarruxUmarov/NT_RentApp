@@ -195,8 +195,8 @@
                         </li>
                         <li class="has-submenu parent-menu-item"><a href="javascript:void(0)"> Auth Pages </a><span class="submenu-arrow"></span>
                             <ul class="submenu">
-                                <li><a href="/login/create" class="sub-menu-item">Login</a></li>
-                                <li><a href="/register/create" class="sub-menu-item">Signup</a></li>
+                                <li><a href="/login" class="sub-menu-item">Login</a></li>
+                                <li><a href="/register" class="sub-menu-item">Signup</a></li>
 
 <!--                                <li><a href="auth-re-password.html" class="sub-menu-item">Reset Password</a></li>-->
                             </ul>
