@@ -1,3 +1,11 @@
-.idea
-vendor
+# PHPStorm IDE project files
+.idea/
+
+# Composer dependency directory
+vendor/
+
+# Environment variables file
 .env
+
+# Node.js dependency directory
+node_modules/
