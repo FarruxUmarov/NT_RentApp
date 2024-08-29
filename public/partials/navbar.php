@@ -30,6 +30,14 @@
                 <?=getUserNameFromSession()?>
                 <a href="/login" class="btn btn-icon bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full"><i data-feather="user" class="size-4 stroke-[3]"></i></a>
             </li>
+            <?php if(isset($_SESSION['phone']) && isset($_SESSION['password'])): ?>
+                    <li class="sm:inline ps-1 mb-0 hidden">
+                        <i><b><?= $_SESSION['username']; ?></b></i>
+                    </li>
+                    <li class="sm:inline ps-1 mb-0 hidden">
+                        <a href="/logout" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Log out</a>
+                    </li>
+            <?php endif; ?>
             <li class="sm:inline ps-1 mb-0 hidden">
                 <a href="/register" class="btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full">Register</a>
             </li>

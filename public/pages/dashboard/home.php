@@ -27,7 +27,7 @@ viewPartials(path: 'header', loadFromPublic: false);
 
                 <ul class="sidebar-menu border-t border-white/10" data-simplebar style="height: calc(100% - 70px);">
                     <li>
-                        <a href="/ads/create"><i class="mdi mdi-chart-bell-curve-cumulative me-2"></i>Dashboard</a>
+                        <a href=""><i class="mdi mdi-chart-bell-curve-cumulative me-2"></i>Dashboard</a>
                     </li>
 
                     <li>

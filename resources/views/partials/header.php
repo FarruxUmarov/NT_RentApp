@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" class="light scroll-smooth" dir="ltr"><head>
+<html lang="en" class="dark scroll-smooth" dir="ltr">
+<head>
     <meta charset="UTF-8">
-    <title>Hously - Tailwind CSS Real Estate Landing &amp; Admin Dashboard Template</title>
+    <title>Hously - Tailwind CSS Real Estate Landing & Admin Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Tailwind CSS Saas &amp; Software Landing Page Template">
+    <meta name="description" content="Tailwind CSS Saas & Software Landing Page Template">
     <meta name="keywords" content="agency, application, business, clean, creative, cryptocurrency, it solutions, modern, multipurpose, nft marketplace, portfolio, saas, software, tailwind css">
     <meta name="author" content="Shreethemes">
     <meta name="website" content="https://shreethemes.in">
@@ -22,3 +23,5 @@
     <link rel="stylesheet" href="dashboard/assets/css/tailwind.min.css">
 
 </head>
+
+<body class="font-body text-base text-black dark:text-white dark:bg-slate-900">

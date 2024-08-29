@@ -22,8 +22,12 @@ Router::post('/login', fn() => (new AuthController())->login());
 Router::get('/register', fn() => view('auth/register'));
 Router::post('/register', fn() => (new AuthController())->register());
 
+Router::get('/logout', fn() => (new AuthController())->logout());
+
+
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');
-Router::get('/profile2', fn() => (new \Controller\UserController())->loadprofile());
+Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile());
+//Router::get('/profile2', fn() => (new \Controller\UserController())->loadProfile());
 
 
 Router::errorResponse(404,'Not Found');

@@ -25,4 +25,11 @@ class AuthController
 
         (new \App\User())->register();
     }
+
+        public function logout(): void
+    {
+        session_destroy();
+        redirect('/login');
+    }
+
 }
