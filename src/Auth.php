@@ -2,6 +2,7 @@
 
 namespace App;
 
+use JetBrains\PhpStorm\NoReturn;
 use PDO;
 
 class Auth
@@ -12,11 +13,11 @@ class Auth
     {
         $this->pdo = DB::connect();
     }
-    public function login(): void
+    #[NoReturn] public function login(): void
     {
         $phone = $_POST['phone'];
         $password = $_POST['password'];
-        $user = $phone . $password;
+//        $user = $phone . $password;
 //        dd($user);
 
         $result = (new User())->getUser($phone);

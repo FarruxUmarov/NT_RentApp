@@ -4,16 +4,16 @@ namespace App\middlewares;
 
 class Authentication
 {
-    public function handle(string|null $meddleware = null): void
+    public function handle(string|null $middleware = null): void
     {
-        if (!$meddleware) {
+        if (!$middleware) {
             return;
         }
 
-        if ($meddleware === 'guest' && isset($_SESSION['user'])) {
+        if ($middleware === 'guest' && isset($_SESSION['user'])) {
             redirect('/');
-        }elseif ($meddleware === 'auth' && !isset($_SESSION['user'])) {
-            require('/login');
+        }elseif ($middleware === 'auth' && !isset($_SESSION['user'])) {
+            redirect('/login');
         }
     }
 }

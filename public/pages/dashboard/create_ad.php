@@ -1,8 +1,8 @@
 <?php
 
 declare(strict_types=1);
-viewPartials('header');
-viewPartials('navbar');
+viewPartials(path:'header');
+viewPartials(path:'navbar');
 ?>
 
 
@@ -278,5 +278,5 @@ viewPartials('navbar');
     </div>
     <!-- page-wrapper -->
 <?php
-viewPartials('footer');
+viewPartials(path:'footer',  loadFromPublic: false);
 ?>

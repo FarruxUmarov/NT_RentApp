@@ -18,7 +18,7 @@
     <nav id="sidebar" class="sidebar-wrapper sidebar-dark">
         <div class="sidebar-content">
             <div class="sidebar-brand">
-                <a href="index.html"><img src="assets/images/logo-light.png" alt=""></a>
+                <a href="index.html"><img src="dashboard/assets/images/logo-light.png" alt=""></a>
             </div>
 
             <ul class="sidebar-menu border-t border-white/10 simplebar-scrollable-y" data-simplebar="init" style="height: calc(100% - 70px);"><div class="simplebar-wrapper" style="margin: -16px 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 16px 0px;">
@@ -126,7 +126,7 @@
                 <div class="flex items-center space-x-1">
                     <!-- Logo -->
                     <a href="#" class="xl:hidden block me-2">
-                        <img src="assets/images/logo-icon-32.png" class="md:hidden block" alt="">
+                        <img src="../../dashboardAssets/images/logo-icon-32.png" class="md:hidden block" alt="">
                         <span class="md:block hidden">
                                     <img src="assets/images/logo-dark.png" class="inline-block dark:hidden" alt="">
                                     <img src="assets/images/logo-light.png" class="hidden dark:inline-block" alt="">

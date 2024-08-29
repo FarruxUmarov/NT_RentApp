@@ -74,3 +74,13 @@ function redirect(string $url): void
 header('Location: ' . $url);
 exit();
 }
+
+
+function getUserNameFromSession()
+{
+    if (isset($_SESSION['user'])) {
+        return $_SESSION['user'];
+    }
+
+    return '';
+}
