@@ -25,11 +25,18 @@ function basePath($path): string
 
 }
 
-function view(string $path, array $args = []): void
+function view(string $path, array $args = null, bool $loadFromPublic = true): void
 {
-    $filePath = basePath('/public/pages/' . $path . '.php');
-    if (!file_exists($filePath)){
-        echo "Required view file not found: $filePath";
+    if ($loadFromPublic) {
+        $file = "/public/pages/$path.php";
+    } else {
+        $file = "/resources/views/pages/$path.php";
+    }
+
+    $filePath = basePath($file);
+
+    if (!file_exists($filePath)) {
+        echo "Required view not found: $filePath";
         return;
     }
 
@@ -39,12 +46,19 @@ function view(string $path, array $args = []): void
     require $filePath;
 }
 
-function viewPartials(string $path, array $args = []): void
+function viewPartials(string $path, array|null $args = null, bool $loadFromPublic = true): void
 {
     if (is_array($args)) {
         extract($args);
     }
-    require basePath('/public/partials/' . $path . '.php');
+
+    if ($loadFromPublic) {
+        $file = "/public/partials/$path.php";
+    } else {
+        $file = "/resources/views/partials/$path.php";
+    }
+
+    require basePath($file);
 }
 
 function viewController(string $path, array $args = []): void
@@ -53,4 +67,10 @@ function viewController(string $path, array $args = []): void
         extract($args);
     }
     require basePath('/controllers/' . $path . '.php');
+}
+
+function redirect(string $url): void
+{
+header('Location: ' . $url);
+exit();
 }

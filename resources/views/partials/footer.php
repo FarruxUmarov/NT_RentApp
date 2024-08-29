@@ -1,0 +1,5 @@
+<script src="../../assets/libs/tobii/js/tobii.min.js"></script>
+<script src="../../assets/libs/feather-icons/feather.min.js"></script>
+<script src="../../assets/libs/simplebar/simplebar.min.js"></script>
+<script src="../../assets/js/plugins.init.js"></script><div role="dialog" aria-hidden="true" class="tobii"><button class="tobii__prev" type="button" aria-label="Previous image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 18l-6-6 6-6"></path></svg></button><button class="tobii__next" type="button" aria-label="Next image"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6l6 6-6 6"></path></svg></button><button class="tobii__close" type="button" aria-label="Close lightbox"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M6 18L18 6"></path></svg></button><div class="tobii__counter"></div></div>
+<script src="../../assets/js/app.js"></script>

@@ -53,6 +53,16 @@ class Ads
         return $this->pdo->query($query)->fetchAll();
     }
 
+    public function getUserAds(int $userId): array
+    {
+        $query = "SELECT *, ads.id AS id, ads.address AS address, ads_image.name AS image
+                    FROM ads 
+                    JOIN branch ON branch.id  = ads.branch_id
+                     LEFT JOIN ads_image ON ads.id = ads_image.ads_id
+                     Where ads.user_id = $userId";
+        return $this->pdo->query($query)->fetchAll();
+    }
+
     public function getAd($id)
     {
         $query = "SELECT ads.*, name AS image
@@ -106,6 +116,16 @@ class Ads
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getUserRolesAds(int $userId): false|array
+    {
+        $query = "SELECT *, ads.id AS id, ads.address AS address, ads_image.name AS image
+                  FROM ads
+                    JOIN branch ON branch.id = ads.branch_id
+                    LEFT JOIN ads_image ON ads.id = ads_image.ads_id
+                  WHERE user_id = $userId"; // FIXME: Prepare userId
+        return $this->pdo->query($query)->fetchAll();
     }
 
 }
