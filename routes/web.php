@@ -26,8 +26,7 @@ Router::get('/logout', fn() => (new AuthController())->logout());
 
 
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');
-Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile());
-//Router::get('/profile2', fn() => (new \Controller\UserController())->loadProfile());
+Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile(), 'auth');
 
 
 Router::errorResponse(404,'Not Found');
