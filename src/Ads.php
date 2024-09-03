@@ -63,7 +63,7 @@ class Ads
         return $this->pdo->query($query)->fetchAll();
     }
 
-    public function getAd($id)
+    public function getAd(int $id)
     {
         $query = "SELECT ads.*, name AS image
                   FROM ads
@@ -78,7 +78,7 @@ class Ads
     }
 
 
-    public function update(
+    public function updateAds(
         int    $id,
         string $title,
         string $description,
@@ -88,8 +88,7 @@ class Ads
         string $address,
         float  $price,
         int    $rooms
-    )
-    {
+    ) {
         $query = "UPDATE ads SET title = :title, description = :description, user_id = :user_id,
                  status_id = :status_id, branch_id = :branch_id, address = :address, 
                  price = :price, rooms = :rooms, updated_at = NOW() WHERE id = :id";
@@ -106,7 +105,7 @@ class Ads
         $stmt->bindParam(':rooms', $rooms);
         $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
     public function delete(int $id): array|false

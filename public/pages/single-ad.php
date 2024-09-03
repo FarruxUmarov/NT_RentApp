@@ -90,6 +90,8 @@ viewPartials('navbar');
                             </div>
                             <div class="p-1 w-1/2">
                                 <a href="" class="btn bg-green-600 hover:bg-green-700 text-white rounded-md w-full">Offer Now</a>
+<!--                                <a href="" class="btn bg-red-600 hover:bg-red-700 text-white rounded-md w-full">--><?php //= (new \App\Ads())->delete($ad->id) ?><!--Delete</a>-->
+
                             </div>
                         </div>
                     </div>

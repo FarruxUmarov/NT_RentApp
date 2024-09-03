@@ -3,6 +3,7 @@
 namespace App;
 
 use PDO;
+
 class Branch
 {
     private PDO $pdo;
@@ -20,9 +21,8 @@ class Branch
         $stmt->bindValue(':address', $address);
         $stmt->execute();
 
-        return (int) $this->pdo->lastInsertId();
+        return (int)$this->pdo->lastInsertId();
     }
-
 
 
     public function get(int $id)
@@ -54,5 +54,20 @@ class Branch
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getBranch()
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM branch WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch();
+
+    }
+
+    public function getBranches()
+    {
+       return $this->pdo->query("SELECT * FROM branch")->fetchAll();
+
     }
 }

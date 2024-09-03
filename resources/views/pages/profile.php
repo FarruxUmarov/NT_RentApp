@@ -1,6 +1,7 @@
 <?php
 
 viewPartials(path: 'header', loadFromPublic: false);
+
 ?>
     <div class="page-wrapper">
         <!-- Start Page Content -->
@@ -233,7 +234,7 @@ viewPartials(path: 'header', loadFromPublic: false);
                                         </div>
 
                                         <div class="mt-4">
-                                            <h5 class="text-lg font-semibold"><?= (new \App\Session())->getName() ?></h5>
+                                            <h5 class="text-lg font-semibold"><?= (new \App\Session())->getUser()['username'] ?></h5>
                                             <p class="text-slate-400">calvin@hotmail.com</p>
                                         </div>
                                     </div>
@@ -308,7 +309,9 @@ viewPartials(path: 'header', loadFromPublic: false);
 
                         <div class="xl:col-span-9 lg:col-span-8 md:col-span-8 mt-6">
                             <div class="grid grid-cols-1 gap-6">
-                                <a href="/ads/create" type="submit" id="submit" name="send" class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md mt-5">Added an ad</a>
+                                <a href="/ads/create" type="submit" id="submit" name="send"
+                                   class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md mt-5">Added
+                                    an ad</a>
 
                                 <div class="p-6 relative rounded-md shadow dark:shadow-gray-700 bg-white dark:bg-slate-900">
                                     <h5 class="text-xl font-semibold">My announcements :</h5>
@@ -321,7 +324,7 @@ viewPartials(path: 'header', loadFromPublic: false);
                                         foreach ($ads as $ad):?>
                                             <div class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                                                 <div class="relative">
-                                                    <img src="../assets/images/ads/<?= $ad->image?>" alt="">
+                                                    <img src="../assets/images/ads/<?= $ad->image ?>" alt="">
 
                                                     <div class="absolute top-4 end-4">
                                                         <a href="/ads/update/<?= $ad->id ?>"
@@ -358,12 +361,18 @@ viewPartials(path: 'header', loadFromPublic: false);
                                                             <span class="text-slate-400">Price</span>
                                                             <p class="text-lg font-medium">$ <?= $ad->price ?></p>
                                                         </li>
-
+                                                    </ul>
+                                                    <ul class="pt-6 flex justify-between items-center list-none">
+                                                        <li>
+                                                            <a href="/profile" type="submit" id="submit" name="delete"
+                                                               class="btn bg-green-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white rounded-md mt-5">Delete</a>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div><!--end property content-->
                                         <?php
                                         endforeach; ?>
+                                        <ul>
                                     </div>
                                 </div>
                             </div>

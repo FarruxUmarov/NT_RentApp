@@ -23,7 +23,7 @@ class Auth
         $result = (new User())->getUser($phone);
 
         if (password_verify($password, $result->password)) {
-            $_SESSION['user'] = $result->username;
+            $_SESSION['user'] = ['username'=>$result->username, 'id'=>$result->id];
             header('location: /');
         } else {
             $_SESSION['error'] = "Wrong phone number or password !!!";

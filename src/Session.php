@@ -12,13 +12,13 @@ class Session
         return null;
     }
 
-    public function getId()
+    public function getId():int|null
     {
         if (isset($this->getUser()['id'])) {
-            return $this->getUser()['id'];
+            return (int) $this->getUser()['id'];
         }
 
-        return '';
+        return null;
     }
     public function getName()
     {

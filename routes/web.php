@@ -11,20 +11,31 @@ Router::get('/', fn() => viewController('home')); // home
 
 Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));
 
-Router::get('/ads/create', fn() => view('dashboard/create_ad'));
-Router::post('/ads/create', fn() => (new AdController())->createAd());
+// CreateAd
+Router::get('/ads/create', fn() => (new AdController())->create());
+Router::post('/ads/create', fn() => (new AdController())->store());
 
+// Update
+Router::get('/ads/update/{id}', fn(int $id) => (new AdController())->update($id));
+Router::patch('/ads/update/{id}', fn(int $id) => (new AdController())->edit($id));
+
+// Status
 Router::get('/status', fn() => view('dashboard/create_status'));
 
+// Login
 Router::get('/login', fn() => view('auth/login'), 'guest');
 Router::post('/login', fn() => (new AuthController())->login());
 
+// Register
 Router::get('/register', fn() => view('auth/register'));
 Router::post('/register', fn() => (new AuthController())->register());
 
+// logout
 Router::get('/logout', fn() => (new AuthController())->logout());
 
+//Router::get('/delete', fn() => (new AuthController())->delete());
 
+// admin and profile
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');
 Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile(), 'auth');
 

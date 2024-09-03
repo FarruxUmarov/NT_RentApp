@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace App;
+
 use App\middlewares\Authentication;
 
 class Router
@@ -50,7 +51,7 @@ class Router
 
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             if ((new self())->getResourceId()) {
-                $path = str_replace('{id}', (string) (new self())->getResourceId(), $path);
+                $path = str_replace('{id}', (string)(new self())->getResourceId(), $path);
                 if ($path === parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
                     $callback((new self())->getResourceId());
                     exit();
@@ -65,14 +66,35 @@ class Router
         return (new Router());
     }
 
+    public static function patch($path, $callback, string|null $middleware = null): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if($_POST['_method'] === 'patch') {
+                if ((new self())->getResourceId()) {
+                    $path = str_replace('{id}', (string)(new self())->getResourceId(), $path);
+                    if ($path === parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
+                        $callback((new self())->getResourceId());
+                        exit();
+                    }
+                }
+                if ($path === parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
+                    (new Authentication())->handle($middleware);
+                    $callback();
+                    exit();
+                }
+            }
+        }
+    }
+
+
     public static function post($path, $callback): void
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === $path) {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === $path ) {
             $callback();
         }
     }
 
-    public static function errorResponse(int $code, $message='Error bad message'): void
+    public static function errorResponse(int $code, $message = 'Error bad message'): void
     {
         http_response_code($code);
         if ($code === 404) {
