@@ -34,6 +34,7 @@ Router::post('/register', fn() => (new AuthController())->register());
 Router::get('/logout', fn() => (new AuthController())->logout());
 
 //Router::get('/delete', fn() => (new AuthController())->delete());
+//Router::delete('/delete')
 
 // admin and profile
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');

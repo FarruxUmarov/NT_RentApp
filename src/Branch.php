@@ -65,7 +65,7 @@ class Branch
 
     }
 
-    public function getBranches()
+    public function getBranches(): bool|array
     {
        return $this->pdo->query("SELECT * FROM branch")->fetchAll();
 

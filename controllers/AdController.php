@@ -6,6 +6,7 @@ namespace Controller;
 use App\Ads;
 use App\Branch;
 use App\Session;
+use App\Status;
 use PDO;
 
 class AdController
@@ -26,7 +27,6 @@ class AdController
     public function create(): void
     {
         $branches = (new Branch())->getBranches();
-//        dd($branches);
         view('dashboard/create_ad', ['branches' => $branches]);
     }
 
@@ -44,14 +44,14 @@ class AdController
             && $_POST['address']
             && $_POST['rooms']) {
 
+//            dd($_POST);
 
-//                dd((new Session())->getId());
             $newAdId = (new \App\Ads())->create(
                 $title,
                 $description,
                 (new Session())->getId(),
                 1,
-                1,
+                (int)$_POST['branch_id'],
                 $address,
                 $price,
                 $rooms
@@ -80,16 +80,25 @@ class AdController
     }
 
     public function update(int $id): void{
-        view('dashboard/create_ad', ['ad' => (new \App\Ads())->getAd($id)]);
+        $branches = (new Branch())->getBranches();
+        $statuses = (new Status())->getStatuses();
+        view('dashboard/create_ad', ['ad' => (new \App\Ads())->getAd($id), 'branches' => $branches, 'statuses' => $statuses]);
     }
 
     public function edit(int $id): void{
         $user_id = (new \App\Session())->getId();
         $ad = (new \App\Ads());
-//        dd($_POST);
-        $ad->updateAds($id, $_POST['title'], $_POST['description'], (int)$user_id, 1, 1, $_POST['address'], (float)$_POST['price'], (int)$_POST['rooms']);
+        $ad->updateAds($id, $_POST['title'], $_POST['description'], (int)$user_id, (int)$_POST['status_id'], (int)$_POST['branch_id'], $_POST['address'], (float)$_POST['price'], (int)$_POST['rooms']);
         header('location: /profile');
 
     }
+
+//    public function delete(int $id): void{
+//        $ad = (new \App\Ads());
+//        $ad->delete($id);
+//        header('location: /profile');
+//        exit();
+//
+//    }
 
 }

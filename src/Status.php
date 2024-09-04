@@ -45,4 +45,10 @@ class Status
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getStatuses(): bool|array
+    {
+        return $this->pdo->query("SELECT * FROM status")->fetchAll();
+
+    }
 }

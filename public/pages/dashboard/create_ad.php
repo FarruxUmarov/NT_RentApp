@@ -6,8 +6,8 @@ viewPartials('navbar');
 /**
  * @var $ad
  * @var $branches
+ * @var $statuses
  */
-//dd($ad);
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 if (in_array('create', $uri)) {
     $action = '/ads/create';
@@ -284,13 +284,15 @@ if (in_array('create', $uri)) {
                                         <input name="title" id="title" type="text" class="form-input mt-2"
                                                placeholder="Title" value="<?= $ad?->title ?>">
                                     </div>
-                                    <div class="md:col-span-120">
-                                        <select name="branch_id" id="">
-                                            <?php foreach ($branches as $branch): ?>
-                                                <option value="<?= $branch->id ?>" ><?= $branch->name ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+<!--                                    <div class="md:col-span-12">-->
+<!--                                        <select name="branch_id" id="">-->
+<!--                                            --><?php
+////                                             dd($branches);
+//                                            foreach ($branches as $branch): ?>
+<!--                                                <option value="--><?php //= $branch->id ?><!--" >--><?php //= $branch->name ?><!--</option>-->
+<!--                                            --><?php //endforeach; ?>
+<!--                                        </select>-->
+<!--                                    </div>-->
                                     <div class="md:col-span-4 col-span-12">
                                         <label for="description" class="font-medium">Description</label>
                                         <div class="form-icon relative mt-2">
@@ -303,20 +305,27 @@ if (in_array('create', $uri)) {
                                     </div>
 
 
-                                    <div class="md:col-span-4 col-span-12 hidden">
-                                        <div class="form-icon relative mt-2">
-                                            <input name="user" value="5" type="number" class="form-input ps-11">
-                                        </div>
-                                    </div>
-                                    <div class="md:col-span-4 col-span-12 hidden">
-                                        <div class="form-icon relative mt-2">
-                                            <input name="status" value="1" type="number" class="form-input ps-11">
-                                        </div>
-                                    </div>
+                                    <div class="md:col-span-4 col-span-12" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                        <div>
 
-                                    <div class="md:col-span-4 col-span-12 hidden">
-                                        <div class="form-icon relative mt-2">
-                                            <input name="branch" value="1" type="number" class="form-input ps-11">
+                                            <label for="branches" class="font-medium" >Fillal</label>
+                                            <select name="branch_id" id="branches" style="color: black; width: 100%;">
+                                                <?php foreach ($branches as $branch) {
+                                                    $selected = ($branch->id == $ad->branch_id ? "selected" : "");
+                                                    echo "<option value='$branch->id' $selected>$branch->name</option>";
+                                                } ?>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="statuses" style="font-weight: 500;">Holati</label>
+                                            <select name="status_id" id="statuses" style="color: black; width: 100%;">
+                                                <?php
+                                                foreach ($statuses as $status) {
+                                                    $selected = ($status->id == $ad->status_id) ? 'selected' : '';
+                                                    echo "<option value=\"{$status->id}\" $selected>{$status->name}</option>";
+                                                }?>
+                                            </select>
                                         </div>
                                     </div>
 
@@ -342,7 +351,7 @@ if (in_array('create', $uri)) {
                                     </div>
                                 </div>
 
-                                <button type="submit" id="submit" name="send"
+                                <button type="submit" id="submit"
                                         class="btn bg-green-600 hover:bg-green-700 border-green-600 hover:border-green-700 text-white rounded-md mt-5">
                                     Save
                                 </button>
@@ -372,6 +381,33 @@ if (in_array('create', $uri)) {
     </main>
 
 </div>
+<!-- JAVASCRIPTS -->
+<script src="assets/libs/feather-icons/feather.min.js"></script>
+@@include("partials/script-file.html")
+
+<script>
+    const handleChange = () => {
+        const fileUploader = document.querySelector('#input-file');
+        const getFile = fileUploader.files
+        if (getFile.length !== 0) {
+            const uploadedFile = getFile[0];
+            readFile(uploadedFile);
+        }
+    }
+
+    const readFile = (uploadedFile) => {
+        if (uploadedFile) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const parent = document.querySelector('.preview-box');
+                parent.innerHTML = `<img class="preview-content" src=${reader.result} />`;
+            };
+
+            reader.readAsDataURL(uploadedFile);
+        }
+    };
+</script>
+<!-- JAVASCRIPTS -->
 
 
 <?php
