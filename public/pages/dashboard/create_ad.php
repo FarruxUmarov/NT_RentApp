@@ -8,8 +8,10 @@ viewPartials('navbar');
  * @var $branches
  * @var $statuses
  */
+
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 if (in_array('create', $uri)) {
+
     $action = '/ads/create';
     $ad = null;
 } else {
@@ -261,12 +263,6 @@ if (in_array('create', $uri)) {
                                     Image" Button.</p>
                                 <div class="preview-box flex justify-center rounded-md shadow dark:shadow-gray-800 overflow-hidden bg-gray-50 dark:bg-slate-800 text-slate-400 p-2 text-center small w-auto max-h-60">
                                     Supports JPG, PNG and MP4 videos. Max file size : 10MB.
-                                    <!--                                    --><?php //if (!empty($ad->image)) : ?>
-                                    <!--                                        <img src="-->
-                                    <?php //= $ad->image ?><!--" alt="Uploaded Image" class="max-h-60">-->
-                                    <!--                                    --><?php //else : ?>
-                                    <!--                                        Supports JPG, PNG and MP4 videos. Max file size : 10MB.-->
-                                    <!--                                    --><?php //endif; ?>
                                 </div>
                                 <input form="ads-create" type="file" id="input-file" name="image" accept="image/*"
                                        onchange={handleChange()} hidden>
@@ -284,6 +280,7 @@ if (in_array('create', $uri)) {
                                         <input name="title" id="title" type="text" class="form-input mt-2"
                                                placeholder="Title" value="<?= $ad?->title ?>">
                                     </div>
+
 <!--                                    <div class="md:col-span-12">-->
 <!--                                        <select name="branch_id" id="">-->
 <!--                                            --><?php
@@ -307,8 +304,7 @@ if (in_array('create', $uri)) {
 
                                     <div class="md:col-span-4 col-span-12" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                                         <div>
-
-                                            <label for="branches" class="font-medium" >Fillal</label>
+                                            <label for="branches" class="font-medium" >Branch</label>
                                             <select name="branch_id" id="branches" style="color: black; width: 100%;">
                                                 <?php foreach ($branches as $branch) {
                                                     $selected = ($branch->id == $ad->branch_id ? "selected" : "");
@@ -316,25 +312,25 @@ if (in_array('create', $uri)) {
                                                 } ?>
                                             </select>
                                         </div>
-
                                         <div>
-                                            <label for="statuses" style="font-weight: 500;">Holati</label>
+                                            <label for="statuses" style="font-weight: 500;">Status</label>
                                             <select name="status_id" id="statuses" style="color: black; width: 100%;">
-                                                <?php
-                                                foreach ($statuses as $status) {
-                                                    $selected = ($status->id == $ad->status_id) ? 'selected' : '';
-                                                    echo "<option value=\"{$status->id}\" $selected>{$status->name}</option>";
+                                                <?php foreach ($statuses as $status) {
+                                                    $selected = ($status->id == $ad->status_id->name) ? 'selected' : '';
+                                                    echo "<option value='$status->id' $selected>$status->name</option>";
                                                 }?>
                                             </select>
                                         </div>
-                                    </div>
-
-                                    <div class="md:col-span-4 col-span-12">
-                                        <label for="address" class="font-medium">Address</label>
-                                        <input name="address" id="address" type="text" class="form-input mt-2"
-                                               placeholder="Manzil:" value="<?= $ad?->address ?>">
-                                    </div>
-                                    <div class="col-span-12">
+                                        <div class="md:col-span-4 col-span-12">
+                                            <label for="branches" class="font-medium" >Address</label>
+                                            <select name="branch_id" id="branches" style="color: black; width: 100%;">
+                                                <?php foreach ($branches as $branch) {
+                                                    $selected = ($branch->id == $ad->branch_id ? "selected" : "");
+                                                    echo "<option value='$branch->id' $selected>$branch->address</option>";
+                                                } ?>
+                                            </select>
+                                        </div
+                                    <div>
                                         <label for="price" class="font-medium">Price:</label>
                                         <div class="form-icon relative mt-2">
                                             <i class="mdi mdi-currency-usd absolute top-2 start-4 text-green-600"></i>
@@ -342,7 +338,7 @@ if (in_array('create', $uri)) {
                                                    placeholder="Narxi($) :" value="<?= $ad?->price ?>">
                                         </div>
                                     </div>
-                                    <div class="col-span-12">
+                                    <div>
                                         <label for="rooms" class="font-medium">Rooms:</label>
                                         <div class="form-icon relative mt-2">
                                             <input name="rooms" id="rooms" type="number" class="form-input ps-11"

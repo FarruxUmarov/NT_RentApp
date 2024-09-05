@@ -78,8 +78,8 @@ viewPartials('navbar');
                                 </li>
 
                                 <li class="flex justify-between items-center mt-2">
-                                    <span class="text-slate-400 text-sm">Monthly Payment (estimate)</span>
-                                    <span class="font-medium text-sm">$ 1497/Monthly</span>
+                                    <span class="text-slate-400 text-sm">Status</span>
+                                    <span class="font-medium text-sm"><?= $ad->status_id ?></span>
                                 </li>
                             </ul>
                         </div>

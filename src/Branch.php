@@ -56,7 +56,7 @@ class Branch
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getBranch()
+    public function getBranch($id)
     {
         $stmt = $this->pdo->prepare("SELECT * FROM branch WHERE id = :id");
         $stmt->bindParam(':id', $id);

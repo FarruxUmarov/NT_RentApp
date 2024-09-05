@@ -103,4 +103,11 @@ class Router
         }
         exit();
     }
+
+    public static function delete($path, $callback): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'delete' && $_SERVER['REQUEST_URI'] === $path ) {
+            $callback();
+        }
+    }
 }

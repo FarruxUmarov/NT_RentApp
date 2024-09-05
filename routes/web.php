@@ -33,8 +33,8 @@ Router::post('/register', fn() => (new AuthController())->register());
 // logout
 Router::get('/logout', fn() => (new AuthController())->logout());
 
-//Router::get('/delete', fn() => (new AuthController())->delete());
-//Router::delete('/delete')
+Router::get('/ads/delete/{id}', fn($id) => (new AdController())->delete($id));
+Router::delete('/ads/delete/{id}', fn($id) => (new AdController())->delete($id));
 
 // admin and profile
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');

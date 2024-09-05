@@ -2,6 +2,10 @@
 
 viewPartials(path: 'header', loadFromPublic: false);
 
+/**
+ * @var $ads
+ */
+
 ?>
     <div class="page-wrapper">
         <!-- Start Page Content -->
@@ -318,9 +322,6 @@ viewPartials(path: 'header', loadFromPublic: false);
 
                                     <div class="grid lg:grid-cols-3 md:grid-cols-2 mt-6 gap-6">
                                         <?php
-                                        /**
-                                         * @var $ads
-                                         */
                                         foreach ($ads as $ad):?>
                                             <div class="group rounded-xl bg-white dark:bg-slate-900 shadow hover:shadow-xl dark:hover:shadow-xl dark:shadow-gray-700 dark:hover:shadow-gray-700 overflow-hidden ease-in-out duration-500">
                                                 <div class="relative">
@@ -329,7 +330,10 @@ viewPartials(path: 'header', loadFromPublic: false);
                                                     <div class="absolute top-4 end-4">
                                                         <a href="/ads/update/<?= $ad->id ?>"
                                                            class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i
-                                                                    class="mdi mdi-heart text-[20px]"></i></a>
+                                                                    class="mdi mdi-pen text-[20px]"></i></a>
+                                                        <a href="/ads/delete/<?= $ad->id ?>"
+                                                           class="btn btn-icon bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600"><i
+                                                                    class="mdi mdi-trash-can text-[20px]"></i></a>
                                                     </div>
                                                 </div>
 
@@ -362,12 +366,10 @@ viewPartials(path: 'header', loadFromPublic: false);
                                                             <p class="text-lg font-medium">$ <?= $ad->price ?></p>
                                                         </li>
                                                     </ul>
+<!--                                                    <form class="/delete/--><?php //= $ad->id ?><!--" name="_method" method="post">-->
+<!--                                                        <button -->
+<!--                                                    </form>-->
                                                     <ul class="pt-6 flex justify-between items-center list-none">
-                                                        <li>
-                                                            <a href="/profile" type="submit" id="submit" name="delete"
-                                                               class="btn bg-green-600 hover:bg-red-700 border-red-600 hover:border-red-700 text-white rounded-md mt-5">Delete</a>
-                                                        </li>
-                                                    </ul>
                                                 </div>
                                             </div><!--end property content-->
                                         <?php

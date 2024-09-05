@@ -59,4 +59,19 @@ class Image
 
     }
 
+    public function getImagesId(int $adsId)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM ads_image WHERE ads_id = :ads_id");
+        $stmt->bindParam(':ads_id', $adsId);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function deleteimage(int $id): bool
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM ads_image WHERE ads_id = :ads_id");
+        $stmt->bindParam('id', $id);
+        return $stmt->execute();
+    }
+
 }

@@ -108,7 +108,7 @@ class Ads
         return $stmt->fetch();
     }
 
-    public function delete(int $id): array|false
+    public function deleteAd(int $id): array|false
     {
         $query = "DELETE FROM ads WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
