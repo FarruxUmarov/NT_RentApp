@@ -19,6 +19,7 @@ class AdController
          */
 
         $ad = (new \App\Ads())->getAd($id);
+//        dd($ad);
 
         $ad->image = "../assets/images/ads/$ad->image";
 
@@ -111,7 +112,7 @@ class AdController
             $imageName = $image->name;
             $filePath = $uploadPath . $imageName;
 
-            if ($imageName !== 'default.jpg') {
+            if ($imageName !== 'imag.jpg') {
 
                 if (file_exists($filePath)) {
                     unlink($filePath);
@@ -121,12 +122,9 @@ class AdController
             }
         }
         (new \App\Ads())->deleteAd($id);
-
-        header('location: /profile');
-        exit();
+        redirect('/profile');
 
     }
-
 
 
 }

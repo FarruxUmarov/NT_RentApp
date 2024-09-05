@@ -34,13 +34,13 @@ $necessaryUrl = findStringsInText($url, $needles);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+    <link rel="shortcut icon" href="../../../public/assets/images/favicon.ico">
 
     <!-- Css -->
     <!-- Main Css -->
     <link href="../assets/libs/simplebar/simplebar.min.css" rel="stylesheet">
-    <link href="../assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="../assets/css/tailwind.min.css">
+    <link href="../../../public/assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../../public/assets/css/tailwind.min.css">
 
 </head>
 
@@ -49,10 +49,10 @@ $necessaryUrl = findStringsInText($url, $needles);
         <div class="grid grid-cols-1">
             <div class="flex flex-col min-h-screen justify-center md:px-10 py-10 px-4">
                 <div class="text-center">
-                    <a href="index.html"><img src="../assets/images/logo-icon-64.png" class="mx-auto" alt=""></a>
+                    <a href="index.html"><img src="../../../public/assets/images/logo-icon-64.png" class="mx-auto" alt=""></a>
                 </div>
                 <div class="title-heading text-center my-auto">
-                    <img src="../assets/images/error.png" class="mx-auto" alt="">
+                    <img src="../../../public/assets/images/error.png" class="mx-auto" alt="">
                     <h1 class="mt-3 mb-6 md:text-4xl text-3xl font-bold">Page Not Found?</h1>
                     <p class="text-slate-400">Whoops, this is embarassing. <br> Looks like the page you were looking for wasn't found.</p>
 

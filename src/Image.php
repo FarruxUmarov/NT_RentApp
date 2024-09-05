@@ -70,7 +70,7 @@ class Image
     public function deleteimage(int $id): bool
     {
         $stmt = $this->pdo->prepare("DELETE FROM ads_image WHERE ads_id = :ads_id");
-        $stmt->bindParam('id', $id);
+        $stmt->bindParam('ads_id', $id);
         return $stmt->execute();
     }
 

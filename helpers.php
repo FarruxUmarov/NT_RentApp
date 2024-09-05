@@ -28,9 +28,9 @@ function basePath($path): string
 function view(string $path, array $args = null, bool $loadFromPublic = true): void
 {
     if ($loadFromPublic) {
-        $file = "/public/pages/$path.php";
-    } else {
         $file = "/resources/views/pages/$path.php";
+    } else {
+        $file = "/public/pages/$path.php";
     }
 
     $filePath = basePath($file);

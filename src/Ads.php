@@ -108,13 +108,12 @@ class Ads
         return $stmt->fetch();
     }
 
-    public function deleteAd(int $id): array|false
+    public function deleteAd(int $id)
     {
         $query = "DELETE FROM ads WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getUserRolesAds(int $userId): false|array

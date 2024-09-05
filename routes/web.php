@@ -5,13 +5,13 @@ declare(strict_types=1);
 
 use App\Router;
 use Controller\AdController;
+use Controller\AdminController;
 use Controller\AuthController;
 
 Router::get('/', fn() => viewController('home')); // home
 
-Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));
-
 // CreateAd
+Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));
 Router::get('/ads/create', fn() => (new AdController())->create());
 Router::post('/ads/create', fn() => (new AdController())->store());
 
@@ -33,6 +33,7 @@ Router::post('/register', fn() => (new AuthController())->register());
 // logout
 Router::get('/logout', fn() => (new AuthController())->logout());
 
+//Delete
 Router::get('/ads/delete/{id}', fn($id) => (new AdController())->delete($id));
 Router::delete('/ads/delete/{id}', fn($id) => (new AdController())->delete($id));
 
@@ -40,6 +41,10 @@ Router::delete('/ads/delete/{id}', fn($id) => (new AdController())->delete($id))
 Router::get('/admin', fn() => view('dashboard/home'), 'auth');
 Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile(), 'auth');
 
+//Branch
+Router::get('/branches', fn()=> (new \Controller\BranchController())->branchShow());
+Router::get('/admin-ads', fn() => (new AdminController())->index());
+//Router::post('/branches/create', fn() => (new AdController())->store());
 
 Router::errorResponse(404,'Not Found');
 

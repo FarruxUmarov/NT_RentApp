@@ -20,13 +20,13 @@ class Status
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function get(int $id){
-        $query = "SELECT * FROM status WHERE id=:id";
+    public function getStatus(int $id){
+        $query = "SELECT name FROM status WHERE id=:id";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindValue(':id',$id);
         $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
     public function update(int $id,string $name){

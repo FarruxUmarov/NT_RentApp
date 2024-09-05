@@ -12,6 +12,6 @@ class UserController
     public function loadProfile(): void
     {
         $ads = (new Ads())->getUsersAds((int)(new Session())->getId());
-        view('profile', ['ads' => $ads], false);
+        view('profile', ['ads' => $ads]);
     }
 }

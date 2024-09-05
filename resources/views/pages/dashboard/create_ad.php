@@ -8,7 +8,6 @@ viewPartials('navbar');
  * @var $branches
  * @var $statuses
  */
-
 $uri = explode('/', $_SERVER['REQUEST_URI']);
 if (in_array('create', $uri)) {
 
@@ -27,7 +26,7 @@ if (in_array('create', $uri)) {
                 <div class="flex items-center space-x-1">
                     <!-- Logo -->
                     <a href="#" class="xl:hidden block me-2">
-                        <img src="../../assets/images/ads" class="md:hidden block" alt="">
+                        <img src="../../../../public/assets/images/ads" class="md:hidden block" alt="">
                         <span class="md:block hidden">
                                     <img src="assets/images/logo-dark.png" class="inline-block dark:hidden" alt="">
                                     <img src="assets/images/logo-light.png" class="hidden dark:inline-block" alt="">

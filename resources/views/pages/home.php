@@ -3,6 +3,7 @@
 
 viewPartials('header');
 viewPartials('navbar');
+
 ?>
 <!-- Start -->
 <section class="relative lg:py-24 py-16">
