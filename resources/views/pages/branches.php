@@ -34,7 +34,7 @@ viewPartials(path: 'header', loadFromPublic: false);
                             </div>
 
                             <div class="content mt-3">
-                                <a href="agency-profile.html"
+                                <a href="/branch/<?= $branch->id?>"
                                    class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out"><?= $branch->name ?></a>
                                 <p class="text-slate-400"><?= $branch->address?></p>
 

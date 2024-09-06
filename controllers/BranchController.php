@@ -3,26 +3,60 @@
 namespace Controller;
 
 use App\Branch;
+use App\Image;
 use App\Status;
+use App\User;
 
 class BranchController
 {
-    public function branchShow(): void
+    public function show(int $id): void
     {
-
-        $branches = (new \App\Branch())->getBranches();
-//        dd($ad);
-
-//        $ad->image = "../assets/images/ads/$ad->image";
-
-        view(path: 'dashboard/showBranches', args: ['branches' => $branches]);
+        $branch = (new Branch())->getBranch($id);
+        view('single-branch', ['branch' => $branch]);
     }
 
-    public function branchCreate(): void
+    public function create(): void
     {
+        $users = (new User())->getUsers();
+
+        view('dashboard/create_branch', ['users' => $users]);
+    }
+
+    public function storeBranch(): void
+    {
+        $name = $_POST['name'];
+        $address = $_POST['address'];
+        (new Branch())->create($name, $address);
+
+        redirect('/branches');
+    }
+
+    public function getAllBranches(): void
+    {
+
         $branches = (new Branch())->getBranches();
-        $statuses = (new Status())->getStatuses();
-        view('dashboard/showBranches', ['branches' => $branches, 'statuses' => $statuses]);
+        view('branches', ['branches' => $branches]);
+    }
+
+    public function deleteBranch($id): void
+    {
+//dd($_POST);
+        $imageHandle = (new Image());
+        $image = $imageHandle->getImagesId($id);
+
+        if ($image) {
+            $uploadPath = basePath('public/assets/images/ads');
+            $imageName = $image->getName();
+            $filePath = $uploadPath . $imageName;
+            if ($filePath !== 'image.jpg') {
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
+                $imageHandle->deleteImage($id);
+            }
+        }
+        (new Branch())->delete($id);
+        redirect('/branches');
     }
 
 }

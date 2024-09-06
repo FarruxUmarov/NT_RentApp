@@ -7,6 +7,10 @@ use App\Router;
 use Controller\AdController;
 use Controller\AdminController;
 use Controller\AuthController;
+use Controller\BranchController;
+use Controller\UserController;
+
+//dd($_POST);
 
 Router::get('/', fn() => viewController('home')); // home
 
@@ -42,9 +46,20 @@ Router::get('/admin', fn() => view('dashboard/home'), 'auth');
 Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile(), 'auth');
 
 //Branch
-Router::get('/branches', fn()=> (new \Controller\BranchController())->branchShow());
-Router::get('/admin-ads', fn() => (new AdminController())->index());
-//Router::post('/branches/create', fn() => (new AdController())->store());
+Router::get('/branch/{id}', fn(int $id)=> (new \Controller\BranchController())->show($id));
+
+Router::get('/branch/create', fn()=> (new \Controller\BranchController())->create());
+Router::post('/branch/create', fn() => (new \Controller\BranchController())->storeBranch());
+Router::get('/branches', fn()=> (new \Controller\BranchController())->getAllBranches());
+
+Router::deleteBranch('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch _method bilan
+//Router::delete('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch form bilan
+
+
+//User
+Router::get('/user', fn() => (new UserController())->getAllUser());
+
+//Router::get('/admin-ads', fn() => (new AdminController())->index());
 
 Router::errorResponse(404,'Not Found');
 

@@ -21,19 +21,19 @@ class Branch
         $stmt->bindValue(':address', $address);
         $stmt->execute();
 
-        return (int)$this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId();
     }
 
 
-    public function get(int $id)
-    {
-        $query = "SELECT * FROM branch WHERE id = :id";
-        $stmt = $this->pdo->prepare($query);
-        $stmt->bindValue(':id', $id);
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
+//    public function get(int $id)
+//    {
+//        $query = "SELECT * FROM branch WHERE id = :id";
+//        $stmt = $this->pdo->prepare($query);
+//        $stmt->bindValue(':id', $id);
+//        $stmt->execute();
+//
+//        return $stmt->fetch(PDO::FETCH_ASSOC);
+//    }
 
     public function update(int $id, string $name, string $address)
     {
@@ -53,7 +53,7 @@ class Branch
         $stmt->bindValue(':id', $id);
         $stmt->execute();
 
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch();
     }
 
     public function getBranch($id)

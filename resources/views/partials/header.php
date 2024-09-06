@@ -38,17 +38,29 @@
                 <li>
                     <a href="/admin"><i class="mdi mdi-chart-bell-curve-cumulative me-2"></i>Dashboard</a>
                 </li>
+                <li>
+                    <a href="/"><i class="mdi mdi-bullhorn me-2"></i>Ads</a>
+                </li>
+                <li class="sidebar-dropdown">
+                    <a href="javascript:void(0)"><i class="mdi mdi-post-outline me-2"></i>Branch</a>
+                    <div class="sidebar-submenu">
+                        <ul>
+                            <li><a href="/branches">Branches</a></li>
+                            <li><a href="/branch/create">Create branch</a></li>
+                        </ul>
+                    </div>
+                </li>
 
                 <li>
                     <a href="/branches"><i class="mdi mdi-home-city me-2"></i>Explore Properties</a>
                 </li>
 
                 <li>
-                    <a href="/ads"><i class="mdi mdi-home-heart me-2"></i>Favorite Properties</a>
+                    <a href="/single-ad"><i class="mdi mdi-home-heart me-2"></i>Favorite Properties</a>
                 </li>
 
                 <li>
-                    <a href=""><i class="mdi mdi-home-plus me-2"></i>Add Properties</a>
+                    <a href="/ads/create"><i class="mdi mdi-home-plus me-2"></i>Add Properties</a>
                 </li>
 
                 <li>
