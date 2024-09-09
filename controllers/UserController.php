@@ -18,8 +18,14 @@ class UserController
 
     public function getAllUser(): void
     {
-        $user = (new User())->getUsers();
-        view('profile', ['users' => $user]);
+        $users = (new User())->getUsers();
+        view('adminUsers', ['users' => $users]);
 
     }
+
+//    public function updateUser(int $id): void
+//    {
+//        $users = (new User())->updateUser($id);
+//        return;
+//    }
 }

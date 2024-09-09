@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-viewPartials('header');
-viewPartials('navbar');
+viewPartials(path: 'header',loadFromPublic: false);
+//viewPartials(path: 'navbar');
 
 /**
  * @var $branch
@@ -14,7 +14,9 @@ viewPartials('navbar');
 <!-- Start -->
 <section class="relative md:py-24 pt-24 pb-16">
     <div class="container relative">
+        <?php viewPartials(path: 'sidebar', loadFromPublic: false); ?>
         <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
+        <?php viewPartials(path: 'topHeader', loadFromPublic: false); ?>
             <div class="lg:col-span-8 md:col-span-7">
                 <div class="grid grid-cols-1 relative">
                     <div class="tiny-one-item">

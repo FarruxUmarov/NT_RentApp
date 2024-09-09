@@ -27,8 +27,7 @@
         <!--Login button Start-->
         <ul class="buy-button list-none mb-0">
             <li class="sm:inline ps-1 mb-0 hidden">
-                <?= (new \App\Session())->getUser()['username'];
-                ?>
+                <?= (new \App\Session())->getName();?>
                 <a href="/login" class="btn btn-icon bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full"><i data-feather="user" class="size-4 stroke-[3]"></i></a>
             </li>
                     <li class="sm:inline ps-1 mb-0 hidden">

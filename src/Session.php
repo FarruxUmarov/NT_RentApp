@@ -6,7 +6,7 @@ class Session
 {
     public function getUser()
     {
-        if ($_SESSION['user']) {
+        if (isset($_SESSION['user'])) {
             return $_SESSION['user'];
         }
         return null;
@@ -22,8 +22,8 @@ class Session
     }
     public function getName()
     {
-        if (isset($this->getUser()['name'])) {
-            return $this->getUser()['name'];
+        if (isset($this->getUser()['username'])) {
+            return $this->getUser()['username'];
         }
         return '';
     }

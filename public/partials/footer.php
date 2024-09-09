@@ -128,6 +128,7 @@
 <script src="../assets/libs/feather-icons/feather.min.js"></script>
 <script src="../assets/js/plugins.init.js"></script>
 <script src="../assets/js/app.js"></script>
+
 <script>
     const handleChange = () => {
         const fileUploader = document.querySelector('#input-file');

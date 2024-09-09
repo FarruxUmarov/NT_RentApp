@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Ads;
 
-function dd($args)
+function dd($args): void
 {
     echo '<pre>';
     var_dump($args);

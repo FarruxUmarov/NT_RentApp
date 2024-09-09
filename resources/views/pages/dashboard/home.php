@@ -6,7 +6,9 @@ viewPartials(path: 'header', loadFromPublic: false);
 ?>
 
     <div class="container-fluid relative px-3">
+        <?php viewPartials(path: 'sidebar', loadFromPublic: false); ?>
         <div class="layout-specing">
+        <?php viewPartials(path: 'topHeader', loadFromPublic: false); ?>
             <!-- Start Content -->
             <div class="flex justify-between items-center">
                 <div>

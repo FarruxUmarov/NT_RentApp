@@ -12,7 +12,7 @@ use Controller\UserController;
 
 //dd($_POST);
 
-Router::get('/', fn() => viewController('home')); // home
+Router::get('/', fn() => (new AdController())->home()); // home
 
 // CreateAd
 Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));
@@ -22,7 +22,6 @@ Router::post('/ads/create', fn() => (new AdController())->store());
 // Update
 Router::get('/ads/update/{id}', fn(int $id) => (new AdController())->update($id));
 Router::patch('/ads/update/{id}', fn(int $id) => (new AdController())->edit($id));
-
 // Status
 Router::get('/status', fn() => view('dashboard/create_status'));
 
@@ -55,11 +54,12 @@ Router::get('/branches', fn()=> (new \Controller\BranchController())->getAllBran
 Router::deleteBranch('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch _method bilan
 //Router::delete('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch form bilan
 
-
 //User
 Router::get('/user', fn() => (new UserController())->getAllUser());
-
+Router::patch('/user/{id}', fn() => (new UserController()));
 //Router::get('/admin-ads', fn() => (new AdminController())->index());
+
+Router::get('/search', fn() => (new AdController())->search());
 
 Router::errorResponse(404,'Not Found');
 

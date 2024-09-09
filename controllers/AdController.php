@@ -12,6 +12,13 @@ use PDO;
 
 class AdController
 {
+    public function home(): void
+    {
+        $ads = (new Ads())->getAds();
+        $branches = (new Branch())->getBranches();
+
+        view('home', ['ads' => $ads, 'branches' => $branches]);
+    }
     public function show($id): void
     {
         /**
@@ -126,5 +133,14 @@ class AdController
 
     }
 
+    public function search(): void
+    {
+
+        $search = $_REQUEST['search_phrase'];
+        $branch = $_GET['branch'] ? (int)$_GET['branch'] : null;
+        $branches = (new Branch())->getBranches();
+        $ads = (new Ads())->search($search, $branch);
+        view('home', ['ads' => $ads, 'branches' => $branches]);
+    }
 
 }

@@ -41,7 +41,7 @@ class User
                     FROM ads 
                     JOIN branch ON branch.id  = ads.branch_id
                      JOIN ads_image ON ads.id = ads_image.ads_id";
-        return $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetchAll(PDO::FETCH_OBJ);
     }
     public function getUsersBranch(): bool|array
     {
@@ -64,7 +64,7 @@ class User
         int    $phone,
         string $password): bool
     {
-        $query = "UPDATE users SET username = :username, position = :position, gender = :gender, phone = :phone, password = :password, updated_at = NOW() WHERE id = :id";
+        $query = "UPDATE users SET username = :username, position = :position, gender = :gender, phone = :phone, password = :password, update_at = NOW() WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':username', $username);
