@@ -17,9 +17,9 @@ class BranchController
 
     public function create(): void
     {
-        $users = (new User())->getUsers();
+//        $users = (new User())->getUsers();
 
-        view('dashboard/create_branch', ['users' => $users]);
+        view('dashboard/create_branch');
     }
 
     public function storeBranch(): void

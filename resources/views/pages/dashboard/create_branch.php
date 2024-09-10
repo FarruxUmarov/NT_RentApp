@@ -24,12 +24,12 @@ viewPartials('navbar');
                     <form class="text-start" action="" method="post">
                         <div class="grid grid-cols-1">
                             <div class="mb-4">
-                                <label class="font-medium" for="branch"><?= $branch->name ?>Branch:</label>
+                                <label class="font-medium" for="branch">Branch:</label>
                                 <input id="branch" name="name" type="text" class="form-input mt-3" placeholder="branch:" required>
                             </div>
 
                             <div class="mb-4">
-                                <label class="font-medium" for="address"><?= $branch->address ?>Address:</label>
+                                <label class="font-medium" for="address">Address:</label>
                                 <input id="address" name="address" type="text" class="form-input mt-3" placeholder="address" required>
                             </div>
                             <div class="mb-4">

@@ -137,9 +137,14 @@ class AdController
     {
 
         $search = $_REQUEST['search_phrase'];
-        $branch = $_GET['branch'] ? (int)$_GET['branch'] : null;
+        $branch = $_GET['branch'] ? (int) $_GET['branch'] : null;
+        $min_price = $_GET['choices-min-price'] ? (int) $_GET['choices-min-price'] : 0;
+        $max_price = $_GET['choices-max-price'] ? (int) $_GET['choices-max-price'] : PHP_INT_MAX;
+
         $branches = (new Branch())->getBranches();
-        $ads = (new Ads())->search($search, $branch);
+
+        $ads = (new Ads())->search($search, $branch, $min_price, $max_price);
+
         view('home', ['ads' => $ads, 'branches' => $branches]);
     }
 
