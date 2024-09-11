@@ -15,11 +15,11 @@
             </li>
 
             <li>
-                <a href="/branch/create"><i class="mdi mdi-home-city me-2"></i>Filial yaratish</a>
+                <a href="/adminBranch/create"><i class="mdi mdi-home-city me-2"></i>Filial yaratish</a>
             </li>
 
             <li>
-                <a href="/branches"><i class="mdi mdi-home-heart me-2"></i>Filiallarni ko'rish</a>
+                <a href="/adminBranch"><i class="mdi mdi-home-heart me-2"></i>Filiallarni ko'rish</a>
             </li>
 
             <li class="sidebar-dropdown">

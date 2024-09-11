@@ -87,36 +87,36 @@ viewPartials('navbar');
                                                 <input name="name" type="text" id="job-keyword" class="form-input filter-input-box bg-gray-50 dark:bg-slate-800 border-0" placeholder="Search your keaywords">
                                             </div>
                                         </div>
-
-                                        <div>
-                                            <label for="buy-properties" class="form-label font-medium text-slate-900 dark:text-white">Select Categories:</label>
-                                            <div class="filter-search-form relative filter-border mt-2">
-                                                <i class="uil uil-estate icons"></i>
-                                                <select class="form-select z-2" data-trigger name="choices-catagory" id="choices-catagory-sell" aria-label="Default select example">
-                                                    <option>Houses</option>
-                                                    <option>Apartment</option>
-                                                    <option>Offices</option>
-                                                    <option>Townhome</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div>
-                                            <label for="buy-min-price" class="form-label font-medium text-slate-900 dark:text-white">Min Price :</label>
-                                            <div class="filter-search-form relative filter-border mt-2">
-                                                <i class="uil uil-usd-circle icons"></i>
-                                                <select class="form-select" data-trigger name="choices-min-price" id="choices-min-price-sell" aria-label="Default select example">
-                                                    <option>Min Price</option>
-                                                    <option>500</option>
-                                                    <option>1000</option>
-                                                    <option>2000</option>
-                                                    <option>3000</option>
-                                                    <option>4000</option>
-                                                    <option>5000</option>
-                                                    <option>6000</option>
-                                                </select>
-                                            </div>
-                                        </div>
+<!---->
+<!--                                        <div>-->
+<!--                                            <label for="buy-properties" class="form-label font-medium text-slate-900 dark:text-white">Select Categories:</label>-->
+<!--                                            <div class="filter-search-form relative filter-border mt-2">-->
+<!--                                                <i class="uil uil-estate icons"></i>-->
+<!--                                                <select class="form-select z-2" data-trigger name="choices-catagory" id="choices-catagory-sell" aria-label="Default select example">-->
+<!--                                                    <option>Houses</option>-->
+<!--                                                    <option>Apartment</option>-->
+<!--                                                    <option>Offices</option>-->
+<!--                                                    <option>Townhome</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!---->
+<!--                                        <div>-->
+<!--                                            <label for="buy-min-price" class="form-label font-medium text-slate-900 dark:text-white">Min Price :</label>-->
+<!--                                            <div class="filter-search-form relative filter-border mt-2">-->
+<!--                                                <i class="uil uil-usd-circle icons"></i>-->
+<!--                                                <select class="form-select" data-trigger name="choices-min-price" id="choices-min-price-sell" aria-label="Default select example">-->
+<!--                                                    <option>Min Price</option>-->
+<!--                                                    <option>500</option>-->
+<!--                                                    <option>1000</option>-->
+<!--                                                    <option>2000</option>-->
+<!--                                                    <option>3000</option>-->
+<!--                                                    <option>4000</option>-->
+<!--                                                    <option>5000</option>-->
+<!--                                                    <option>6000</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
 
                                         <div>
                                             <label for="buy-max-price" class="form-label font-medium text-slate-900 dark:text-white">Max Price :</label>

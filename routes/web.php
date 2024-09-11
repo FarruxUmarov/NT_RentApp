@@ -16,8 +16,8 @@ Router::get('/', fn() => (new AdController())->home()); // home
 
 // CreateAd
 Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));
-Router::get('/ads/create', fn() => (new AdController())->create());
-Router::post('/ads/create', fn() => (new AdController())->store());
+Router::get('/ads/create', fn() => (new AdController())->create(), 'auth');
+Router::post('/ads/create', fn() => (new AdController())->store(), 'auth');
 
 // Update
 Router::get('/ads/update/{id}', fn(int $id) => (new AdController())->update($id));
@@ -45,11 +45,12 @@ Router::get('/admin', fn() => view('dashboard/home'), 'auth');
 Router::get('/profile', fn() => (new \Controller\UserController())->loadProfile(), 'auth');
 
 //Branch
-Router::get('/branch/{id}', fn(int $id)=> (new \Controller\BranchController())->show($id));
+Router::get('/branch/{id}', fn(int $id)=> (new \Controller\BranchController())->show($id), 'auth');
 
-Router::get('/branch/create', fn()=> (new \Controller\BranchController())->create());
-Router::post('/branch/create', fn() => (new \Controller\BranchController())->storeBranch());
-Router::get('/branches', fn()=> (new \Controller\BranchController())->getAllBranches());
+Router::get('/adminBranch/create', fn()=> (new \Controller\BranchController())->create(),'auth');
+Router::post('/adminBranch/create', fn() => (new \Controller\BranchController())->storeBranch(), 'auth');
+Router::get('/adminBranches', fn()=> (new \Controller\BranchController())->getAllBranches(), 'auth');
+Router::get('/branches', fn()=> (new \Controller\BranchController())->homeBranches());
 
 Router::deleteBranch('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch _method bilan
 //Router::delete('/branch/delete/{id}', fn($id) => (new BranchController())->deleteBranch($id));  // delete branch form bilan

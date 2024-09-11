@@ -56,14 +56,14 @@ class Branch
         return $stmt->fetch();
     }
 
-    public function getBranch($id)
-    {
-        $stmt = $this->pdo->prepare("SELECT * FROM branch WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch();
-
-    }
+//    public function getBranches($id)
+//    {
+//        $stmt = $this->pdo->prepare("SELECT * FROM branch WHERE id = :id");
+//        $stmt->bindParam(':id', $id);
+//        $stmt->execute();
+//        return $stmt->fetch();
+//
+//    }
 
     public function getBranches(): bool|array
     {

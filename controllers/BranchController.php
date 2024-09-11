@@ -28,14 +28,14 @@ class BranchController
         $address = $_POST['address'];
         (new Branch())->create($name, $address);
 
-        redirect('/branches');
+        redirect('/adminBranches');
     }
 
     public function getAllBranches(): void
     {
 
         $branches = (new Branch())->getBranches();
-        view('branches', ['branches' => $branches]);
+        view('adminBranches', ['branches' => $branches]);
     }
 
     public function deleteBranch($id): void
@@ -56,7 +56,13 @@ class BranchController
             }
         }
         (new Branch())->delete($id);
-        redirect('/branches');
+        redirect('/adminBranches');
+    }
+
+    public function homeBranches(): void
+    {
+        $branches = (new Branch())->getBranches();
+        view('branches', ['branches' => $branches]);
     }
 
 }

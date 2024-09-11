@@ -107,8 +107,11 @@ class Router
     }
 
 
-    public static function post($path, $callback): void
+    public static function post($path, $callback, string|null $middleware = null): void
     {
+        if ($path === parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)) {
+            (new Authentication())->handle($middleware);
+        }
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === $path ) {
             $callback();
         }
