@@ -2,7 +2,7 @@
 <nav id="sidebar" class="sidebar-wrapper sidebar-dark">
     <div class="sidebar-content">
         <div class="sidebar-brand">
-            <a href="/"><img src="/dashboard/assets/images/logo-light.png" alt=""></a>
+            <a href="/admin"><img src="/dashboard/assets/images/logo-light.png" alt=""></a>
         </div>
 
         <ul class="sidebar-menu border-t border-white/10" data-simplebar style="height: calc(100% - 70px);">
@@ -11,7 +11,7 @@
             </li>
 
             <li>
-                <a href="/"><i class="mdi mdi-bullhorn-outline me-2"></i>E'lonlar</a>
+                <a href="/admin/home"><i class="mdi mdi-bullhorn-outline me-2"></i>E'lonlar</a>
             </li>
 
             <li>
@@ -19,7 +19,7 @@
             </li>
 
             <li>
-                <a href="/adminBranch"><i class="mdi mdi-home-heart me-2"></i>Filiallarni ko'rish</a>
+                <a href="/adminBranches"><i class="mdi mdi-home-heart me-2"></i>Filiallarni ko'rish</a>
             </li>
 
             <li class="sidebar-dropdown">

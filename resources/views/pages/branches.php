@@ -17,7 +17,7 @@ viewPartials('navbar');
                 </div>
 
                 <div class="content mt-3">
-                    <a href="agency-profile.html" class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out"><?= $branch->name ?>></a>
+                    <a href="/branch/<?= $branch->id ?>" class="text-xl font-medium hover:text-green-600 transition-all duration-500 ease-in-out"><?= $branch->name ?></a>
                     <p class="text-slate-400">Real Estate Agency</p>
 
                     <ul class="list-none mt-2">

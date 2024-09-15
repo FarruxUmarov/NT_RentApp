@@ -13,6 +13,7 @@ use Controller\UserController;
 //dd($_POST);
 
 Router::get('/', fn() => (new AdController())->home()); // home
+Router::get('/admin/home', fn() => (new AdController())->adminHome(), 'auth'); // home
 
 // CreateAd
 Router::get('/ads/{id}', fn(int $id)=> (new AdController())->show($id));

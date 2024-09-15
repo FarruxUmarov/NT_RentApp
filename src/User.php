@@ -35,13 +35,10 @@ class User
         return $this->pdo->query("SELECT * FROM users WHERE phone = {$phone}")->fetch();
     }
 
-    public function getUsers()
+    public function getUsers(): bool|array
     {
-        $query = "SELECT *, ads.id AS id, ads.address AS address, ads_image.name AS image
-                    FROM ads 
-                    JOIN branch ON branch.id  = ads.branch_id
-                     JOIN ads_image ON ads.id = ads_image.ads_id";
-        return $this->pdo->query($query)->fetchAll(PDO::FETCH_OBJ);
+        $query = "SELECT * FROM users";
+        return $this->pdo->query($query)->fetchAll();
     }
     public function getUsersBranch(): bool|array
     {

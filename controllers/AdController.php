@@ -12,6 +12,13 @@ use PDO;
 
 class AdController
 {
+    public function adminHome()
+    {
+        $ads = (new Ads())->getAds();
+        $branches = (new Branch())->getBranches();
+
+        view('dashboard/adminHome', ['ads' => $ads, 'branches' => $branches]);
+    }
     public function home(): void
     {
         $ads = (new Ads())->getAds();

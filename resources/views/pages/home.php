@@ -3,7 +3,6 @@
 
 viewPartials('header');
 viewPartials('navbar');
-
 /**
  * @var $branches
  */

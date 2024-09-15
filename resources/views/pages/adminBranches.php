@@ -6,7 +6,6 @@ declare(strict_types=1);
  */
 viewPartials(path: 'header', loadFromPublic: false);
 
-
 ?>
 
         <div class="container-fluid relative px-3">

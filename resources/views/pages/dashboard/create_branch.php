@@ -9,7 +9,6 @@ viewPartials('navbar');
  * @var $statuses
  */
 
-
 ?>
 <section class="h-screen flex items-center justify-center relative overflow-hidden bg-[url('../../assets/images/01.jpg')] bg-no-repeat bg-center bg-cover">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
